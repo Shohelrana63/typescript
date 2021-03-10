@@ -1,3 +1,3 @@
 "use strict";
-let msg = "hello typescript";
+let msg = "hello programmer";
 console.log(msg);
