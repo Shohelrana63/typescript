@@ -134,3 +134,64 @@ const baig: baigType = function (intro: string, title: string, age = 0, ...membe
 }
 const results = baig('we are', 'baig digital ', 10, "baig1", 'baig2')
 console.log(results);
+
+/*******************************
+ * /****
+ ***
+ **
+ *-- TYPE ALIASES --*
+ **
+ ***
+****/
+type MyObj = {
+    name: string;
+    age: number;
+}
+type MyObj2 = {
+    name: string;
+    age: number;
+}
+type MyType = string | boolean | MyObj | MyObj2
+type MyFunType = (value: MyType) => MyType[]
+
+let myFun: MyFunType = (value) => {
+    myArray.push(value)
+    return myArray
+}
+let myArray: MyType[] = []
+
+/*******************************
+ * /****
+ ***
+ **
+ *-- CLASS & INHERITANCE --*
+ **
+ ***
+****/
+class Human {
+    public name: string;
+    public age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name
+        this.age = age
+    }
+    public sleep = (): void => {
+        this.talk()
+    }
+    private talk = (): void => {
+        console.log(`${this.name} is talking`);
+    }
+}
+class Person extends Human {
+    gender: string;
+    constructor(gender: string, name: string, age: number) {
+        super(name, age)
+        this.gender = gender
+    }
+    walk = (): void =>
+        console.log(`${this.name} is walking`);
+}
+let person1 = new Person('Male', 'baig', 23)
+person1.sleep()
+// let human1 = new Human('baig', 23)
